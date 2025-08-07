@@ -1,50 +1,39 @@
 import React from 'react';
+import BackgroundImage from '../assets/images/hero.jpg';
 
-const Members = () => {
+const MembersPage = () => {
   const members = [
-    { id: 1, name: 'John Doe', membership: 'Premium', joinDate: 'Jul 15, 2025', status: 'Active' },
-    { id: 2, name: 'Jane Smith', membership: 'Basic', joinDate: 'Aug 01, 2025', status: 'Active' },
-    { id: 3, name: 'Mike Johnson', membership: 'VIP', joinDate: 'Jun 20, 2025', status: 'Inactive' },
-    { id: 4, name: 'Sarah Williams', membership: 'Premium', joinDate: 'Jul 10, 2025', status: 'Active' },
+    { id: 1, name: 'John Doe', email: 'john.doe@example.com', phone: '+1-555-0101', address: '123 Fitness Lane', membership: 'Premium', image: BackgroundImage },
+    { id: 2, name: 'Jane Smith', email: 'jane.smith@example.com', phone: '+1-555-0102', address: '456 Health St', membership: 'Basic', image: BackgroundImage },
+    { id: 3, name: 'Mike Johnson', email: 'mike.j@example.com', phone: '+1-555-0103', address: '789 Gym Ave', membership: 'VIP', image: BackgroundImage },
+    { id: 4, name: 'Sarah Williams', email: 'sarah.w@example.com', phone: '+1-555-0104', address: '101 Fit Rd', membership: 'Premium', image: BackgroundImage },
   ];
 
   return (
     <section className="py-12 px-4 bg-gray-50 min-h-screen">
-      <h2 className="text-3xl font-bold mb-6 text-center">Members List</h2>
-      <div className="max-w-6xl mx-auto">
-        <div className="bg-white rounded-lg shadow-md overflow-hidden">
-          <table className="w-full text-left">
-            <thead className="bg-gray-200">
-              <tr>
-                <th className="p-4">Name</th>
-                <th className="p-4">Membership</th>
-                <th className="p-4">Join Date</th>
-                <th className="p-4">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {members.map((member) => (
-                <tr key={member.id} className="border-t">
-                  <td className="p-4">{member.name}</td>
-                  <td className="p-4">{member.membership}</td>
-                  <td className="p-4">{member.joinDate}</td>
-                  <td className="p-4">
-                    <span
-                      className={`px-2 py-1 rounded-full text-sm ${
-                        member.status === 'Active' ? 'bg-green-200 text-green-800' : 'bg-red-200 text-red-800'
-                      }`}
-                    >
-                      {member.status}
-                    </span>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+      <div className= "mx-auto">
+        <div className="flex justify-end mb-6">
+          <button className="bg-orange-600 text-white py-2 px-4 rounded-lg hover:bg-orange-500 transition-colors duration-300">
+            Add Member
+          </button>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {members.map((member) => (
+            <div key={member.id} className="bg-white rounded-lg shadow-md p-4">
+              <img src={member.image} alt={member.name} className="w-full h-48 object-cover rounded-t-lg" />
+              <div className="p-4">
+                <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
+                <p className="text-gray-600 mb-1">Email: {member.email}</p>
+                <p className="text-gray-600 mb-1">Phone: {member.phone}</p>
+                <p className="text-gray-600 mb-1">Address: {member.address}</p>
+                <p className="text-gray-600 font-medium">Membership: {member.membership}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
   );
 };
 
-export default Members;
+export default MembersPage;

@@ -42,6 +42,11 @@ const Header = () => {
           <Calendar className="w-5 h-5" />
           <span>Classes</span>
         </Link>
+<Link to="/trainers" className="block md:inline-flex items-center space-x-2 hover:text-orange-600 py-2 md:py-0">
+  <Users className="w-5 h-5" />
+  <span>Trainers</span>
+</Link>
+
         <Link
           to="/memberships"
           className="block md:inline-flex items-center bg-orange-600 text-white py-2 px-4 rounded-lg hover:bg-orange-500 transition-colors duration-300 mt-2 md:mt-0"
